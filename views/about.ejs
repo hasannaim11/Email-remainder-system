@@ -1,1 +1,266 @@
+<style>
+  .about-section { padding: 60px 0 100px; }
 
+  .about-header { text-align: center; margin-bottom: 4rem; }
+
+  .about-header h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+  }
+
+  .about-header p {
+    color: #718096;
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .about-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    border: 2px solid rgba(102, 126, 234, 0.05);
+    transition: all 0.3s ease;
+  }
+
+  .about-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(102, 126, 234, 0.12);
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #2d3748;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .section-title i {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .about-card p {
+    color: #4a5568;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+
+  .tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .tech-item {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.08), rgba(118, 75, 162, 0.08));
+    padding: 0.9rem 1.5rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(102, 126, 234, 0.1);
+    font-weight: 600;
+    color: #2d3748;
+  }
+
+  .tech-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.15);
+  }
+
+  .tech-item i {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.4rem;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1.2rem;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border-left: 3px solid #667eea;
+  }
+
+  .feature-list li:hover {
+    transform: translateX(8px);
+  }
+
+  .feature-list i {
+    color: #667eea;
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+  }
+
+  .feature-list strong {
+    color: #2d3748;
+    display: block;
+    font-size: 1.05rem;
+  }
+
+  .feature-list p {
+    color: #718096;
+    font-size: 0.9rem;
+    margin: 0.3rem 0 0;
+  }
+
+  .developer-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 3rem;
+    border-radius: 20px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .developer-section h3 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+  }
+
+  .developer-section p {
+    font-size: 1.05rem;
+    opacity: 0.95;
+    margin-bottom: 1rem;
+  }
+</style>
+
+<section class="about-section">
+  <div class="container">
+    <div class="about-header">
+      <h1>About RemindMe</h1>
+      <p>A modern, intelligent email reminder system designed to help students and professionals stay organized and never miss important deadlines, assignments, or follow-ups.</p>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="about-card">
+          <h2 class="section-title">
+            <i class="bi bi-info-circle"></i>
+            Project Overview
+          </h2>
+          <p>
+            RemindMe is a full-stack web application built as an IBM Naan Mudhalvan college project to demonstrate modern web development practices. It allows users to schedule email reminders for important tasks, deadlines, and communications.
+          </p>
+          <p>
+            The system automatically sends reminder emails at the scheduled time, ensuring you never forget a deadline, project submission, or important follow-up. Perfect for students managing multiple assignments and professionals with busy schedules.
+          </p>
+        </div>
+
+        <div class="about-card">
+          <h2 class="section-title">
+            <i class="bi bi-star"></i>
+            Key Features
+          </h2>
+          <ul class="feature-list">
+            <li>
+              <i class="bi bi-calendar-plus"></i>
+              <div>
+                <strong>Schedule Email Reminders</strong>
+                <p>Set up reminders for any future date and time with ease</p>
+              </div>
+            </li>
+            <li>
+              <i class="bi bi-list-check"></i>
+              <div>
+                <strong>View All Reminders</strong>
+                <p>Access and manage all your scheduled reminders in one dashboard</p>
+              </div>
+            </li>
+            <li>
+              <i class="bi bi-envelope-check"></i>
+              <div>
+                <strong>Automatic Email Delivery</strong>
+                <p>Get reminders delivered automatically at scheduled time to your inbox</p>
+              </div>
+            </li>
+            <li>
+              <i class="bi bi-lightning-charge"></i>
+              <div>
+                <strong>Instant & Reliable</strong>
+                <p>Fast, dependable reminders you can trust for all your tasks</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="about-card">
+          <h2 class="section-title">
+            <i class="bi bi-code-slash"></i>
+            Tech Stack
+          </h2>
+          <div class="tech-stack">
+            <div class="tech-item">
+              <i class="bi bi-filetype-js"></i>
+              <span>Node.js</span>
+            </div>
+            <div class="tech-item">
+              <i class="bi bi-diagram-3"></i>
+              <span>Express.js</span>
+            </div>
+            <div class="tech-item">
+              <i class="bi bi-database"></i>
+              <span>MongoDB</span>
+            </div>
+            <div class="tech-item">
+              <i class="bi bi-envelope"></i>
+              <span>Nodemailer</span>
+            </div>
+            <div class="tech-item">
+              <i class="bi bi-clock"></i>
+              <span>Node-Cron</span>
+            </div>
+            <div class="tech-item">
+              <i class="bi bi-bootstrap"></i>
+              <span>Bootstrap 5</span>
+            </div>
+            <div class="tech-item">
+              <i class="bi bi-file-earmark-code"></i>
+              <span>EJS</span>
+            </div>
+          </div>
+
+          <h2 class="section-title" style="margin-top: 2.5rem;">
+            <i class="bi bi-person-circle"></i>
+            Developer
+          </h2>
+          <div class="developer-section">
+            <h3>Froz Naasim N</h3>
+            <p>Full Stack Developer</p>
+            <div style="margin-top: 1.5rem; font-size: 0.95rem; opacity: 0.9;">
+              Email Reminder System | Full Stack Project | 2025
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

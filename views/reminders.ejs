@@ -1,0 +1,146 @@
+<style>
+  .reminders-section { padding: 60px 0 100px; }
+
+  .reminders-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .reminders-header h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #2d3748;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  [data-bs-theme="dark"] .reminders-header h2 { color: #e0e0e0; }
+
+  .reminder-table {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    border: 2px solid rgba(102, 126, 234, 0.05);
+  }
+
+  [data-bs-theme="dark"] .reminder-table {
+    background: rgba(50, 50, 80, 0.8);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
+  }
+
+  .table thead { background: var(--primary-gradient); color: white; }
+  .table thead th {
+    border: none;
+    padding: 1.3rem !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+  }
+
+  .table tbody td {
+    padding: 1.3rem !important;
+    vertical-align: middle;
+    border-color: #f0f0f0;
+    color: #2d3748;
+    font-weight: 500;
+  }
+
+  [data-bs-theme="dark"] .table tbody td {
+    border-color: rgba(102, 126, 234, 0.1);
+    color: #e0e0e0;
+  }
+
+  .status-badge {
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .status-pending {
+    background: rgba(251, 188, 5, 0.1);
+    color: #856404;
+    border: 1px solid rgba(251, 188, 5, 0.3);
+  }
+
+  .status-sent {
+    background: rgba(79, 172, 254, 0.1);
+    color: #0077be;
+    border: 1px solid rgba(79, 172, 254, 0.3);
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #718096;
+  }
+
+  [data-bs-theme="dark"] .empty-state { color: #b0b0b0; }
+
+  .empty-state h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+  }
+
+  [data-bs-theme="dark"] .empty-state h4 { color: #e0e0e0; }
+</style>
+
+<section class="reminders-section">
+  <div class="container">
+    <div class="reminders-header">
+      <h2><i class="bi bi-list-check"></i>Your Reminders</h2>
+      <a href="/schedule" class="btn btn-primary"><i class="bi bi-plus-circle"></i>Add New Reminder</a>
+    </div>
+
+    <div class="reminder-table">
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th><i class="bi bi-envelope"></i>Email</th>
+              <th><i class="bi bi-chat-dots"></i>Message</th>
+              <th><i class="bi bi-calendar-event"></i>Scheduled Time</th>
+              <th><i class="bi bi-info-circle"></i>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (reminders && reminders.length === 0) { %>
+            <tr>
+              <td colspan="4">
+                <div class="empty-state">
+                  <i class="bi bi-inbox" style="font-size: 4rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                  <h4>No Reminders Yet</h4>
+                  <p>You haven't scheduled any reminders. Create your first one!</p>
+                  <a href="/schedule" class="btn btn-primary btn-sm" style="margin-top: 1rem;"><i class="bi bi-calendar-plus"></i>Schedule Reminder</a>
+                </div>
+              </td>
+            </tr>
+            <% } else if (reminders) { %>
+            <% reminders.forEach(reminder => { %>
+            <tr>
+              <td><strong><%= reminder.email %></strong></td>
+              <td><span title="<%= reminder.message %>"><%= reminder.message.substring(0, 40) %><% if(reminder.message.length > 40) { %>...<% } %></span></td>
+              <td><%= new Date(reminder.scheduledTime).toLocaleString() %></td>
+              <td><span class="status-badge <%= reminder.sent ? 'status-sent' : 'status-pending' %>"><i class="bi <%= reminder.sent ? 'bi-check-circle-fill' : 'bi-hourglass-split' %>"></i><%= reminder.sent ? 'Sent' : 'Pending' %></span></td>
+            </tr>
+            <% }); %>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
